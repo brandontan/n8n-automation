@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Checking N8N status..."
-if curl -s -o /dev/null -w "%{http_code}" http://localhost:5678 then
+if curl -s -o /dev/null -w "%{http_code}" http://localhost:5678; then
     echo "✓ N8N is running"
     if [ -f ~/.n8n/workflows/twitter_bot.json ]; then
         echo "✓ Workflow file exists"
