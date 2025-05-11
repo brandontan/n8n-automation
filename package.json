@@ -1,0 +1,17 @@
+{
+  "name": "n8n-automation",
+  "version": "1.0.0",
+  "description": "N8N automation for daily tweets",
+  "main": "index.js",
+  "scripts": {
+    "start": "n8n start",
+    "start:pm2": "pm2 start node_modules/n8n/bin/n8n --name n8n-twitter-bot"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "n8n": "^1.91.3",
+    "pm2": "^5.4.3"
+  }
+}
