@@ -1,0 +1,70 @@
+{
+  "name": "Daily Tweet at 9 AM",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "52 20 * * *"
+            }
+          ]
+        }
+      },
+      "id": "b4e20cf9-fce2-4d40-8a56-de347aa2b696",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "text": "{{ $json.tweetContent || 'This is my automated daily tweet!' }}",
+        "additionalFields": {}
+      },
+      "id": "e9a4d893-4f55-43df-bb5c-3c5ed32b627d",
+      "name": "X",
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 2,
+      "position": [
+        460,
+        300
+      ],
+      "credentials": {
+        "twitterOAuth2Api": {
+          "id": "X-OAuth2-API-Credential-ID",
+          "name": "X (Twitter) OAuth2 API"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "X",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "pinData": {},
+  "versionId": "1a9b55e1-cc2b-4e1f-8c1e-1b567ae621ab",
+  "id": "7dd9fd2e-cc4a-4f61-af1a-f524bcfc1d21",
+  "meta": {
+    "instanceId": "YOUR_INSTANCE_ID"
+  }
+}
+
